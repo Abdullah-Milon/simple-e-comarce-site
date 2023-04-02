@@ -1,0 +1,20 @@
+
+.shop-container {
+    display: grid;
+margin-top: 50px;
+
+    /*repeat না দেওয়ার মূল কারণ হচ্ছে  এটা আংশিক ভাগ আকারে দেখাতে হবে 
+   repeat দিলে একই পরিমাণের কয়েকটা হবে। কিন্তু আমার এখানে প্রয়োজন 
+   আংশিক আকারে তাই ফ্রাকশন আকারেই দেয়া লাগবে 
+ */
+    grid-template-columns: 4fr 1fr;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-left: 104px;
+    margin-right: 84px;
+align-content: center;  
+}
