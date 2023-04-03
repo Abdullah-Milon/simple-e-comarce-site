@@ -76,6 +76,9 @@ index ক্রম পাওয়া  যায়। আবার,
 কোন একটা array এর মধ্যে for of loop চালালে ওই array-র index 
 অনুযায়ী elements গুলোকে পাওয়া যায় 
 
+কোন object  এর মধ্যে for of loop চালানো যাবেনা, for of loop সুধুমাত্র array তে 
+চালানো যাই
+
 */
 
 

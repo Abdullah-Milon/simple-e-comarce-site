@@ -6,8 +6,9 @@ import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 
 
 const Shop = () => {
-    /*useState এর মধ্যে প্রথম টা হচ্ছে তার মধ্যে data বা অন্যকিছু
-     সংরক্ষণ করি  আর পরেরটা হচ্ছে এই useState কে সেট  করবে
+    /*useState এর মধ্যে প্রথম টা হচ্ছে state যার মধ্যে data বা অন্যকিছু
+     সংরক্ষণ করি মানে useState ও array first element এর মান একই । 
+     আর পরেরটা হচ্ছে এই useState কে সেট করবে
      যদি ডাটা লোড হয়ে যায় বা আর অন্য কিছু 
      */
     const [products, setProducts] = useState([]);
@@ -26,10 +27,26 @@ const Shop = () => {
 
     //fakedb-note 65
 
-    useEffect(() =>{
+    useEffect(() => {
+        // console.log('products', products)
+
         const storedCart = getShoppingCart();
-        console.log(storedCart)
-    },[])
+        // console.log(storedCart)
+
+        // step: 1 get id
+        for (const id in storedCart) {
+            // console.log(id)
+
+            // step 2: get the product by using  id
+            const addedProduct = products.find(product => product.id === id)
+            // console.log(addedProduct)
+
+            // step 3: get quantity of the product
+            const quantity = storedCart[id]
+            addedProduct.quantity = quantity
+            console.log(addedProduct)
+        }
+    }, [products])
 
     const handleAddToCart = (product) => {
         //4
@@ -52,9 +69,9 @@ const Shop = () => {
             </div>
             <div className="cart-container">
                 {/* 5 */}
-               <Cart
-               cart = {cart}
-               ></Cart>
+                <Cart
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );
