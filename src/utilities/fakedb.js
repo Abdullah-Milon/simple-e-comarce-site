@@ -1,6 +1,10 @@
+//for know details go fakedb-note.jsx 
+
+
 // use local storage to manage cart data
+// 45
 const addToDb = id => {
-    let shoppingCart = getShoppingCart();
+    let shoppingCart = getShoppingCart();//getShoppingCart() একটা fn niche ace
     // add quantity
     const quantity = shoppingCart[id];
     if (!quantity) {
@@ -21,6 +25,8 @@ const removeFromDb = id => {
     }
 }
 
+
+//11
 const getShoppingCart = () => {
     let shoppingCart = {};
 
@@ -42,3 +48,4 @@ export {
     getShoppingCart,
     deleteShoppingCart
 }
+
